@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Duc's Smart Home</title>
+    <style>
+        label {
+            color: blue;
+            font-size: 1.6em
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5em;
+        }
+    </style>
+    <script>
+        function setStatus(whichOne) {
+            var ipConfig = document.getElementById("IPaddress").value;
+            if (ipConfig.length == 0) {
+                alert('Please type in IP address !');
+                return;
+            } else {
+                if (whichOne == 1) window.location = "http://" + ipConfig + "/switch_01";
+                else window.location = "http://" + ipConfig + "/switch_02";
+                alert('Công tắc số ' + whichOne + ' đã thay đổi trạng thái');
+            }
+
+        };
+    </script>
+</head>
+
+<body leftmargin="20%">
+    <h1 align="center">Project nhà thông minh</h1>
+    <h3 align="center"><i>"LAN network only"</i></h3>
+    <label for="IPaddress" align="center">Nhập địa chỉ IP: </label>
+    <input id="IPaddress" type="text" align="center" value="192.168.1.19">
+    <hr>
+    <div>
+        <label for="switch01">Công tắc số 1: </label>
+        <button><img src="Images/switch.png" alt="switch.png" height="45em" style="border:none;"
+                onclick="setStatus(1)"></button>
+    </div>
+    <div>
+        <label for="switch01">Công tắc số 2: </label>
+        <button><img src="Images/switch.png" alt="switch.png" height="45em" style="border:none;"
+                onclick="setStatus(2)"></button>
+    </div>
+</body>
+
+</html>
